@@ -1,0 +1,362 @@
+@import '/src/assets/scss/variables.scss';
+@import '/src/assets/scss/mixins.scss';
+@import '../../../public/icons/css/icon.css';
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+  color: $text-color;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1430px;
+  width: 100%;
+  margin: auto;
+  padding: 0 15px;
+}
+
+button {
+  font-weight: 600 !important;
+}
+
+.btn {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25),
+    inset 0px 4px 4px rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  background-color: $main-color;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 15px;
+  color: $white-color;
+  transition: $transition;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $secondary-color;
+  }
+
+
+
+  &--arrow-down {
+    justify-content: space-between;
+
+    &:after {
+      content: "\e80c";
+      font-family: icon;
+      margin-left: 12px;
+      transition: $transition;
+    }
+
+    &:hover {
+      &:after {
+        transform: translateY(5px);
+      }
+    }
+  }
+
+  &--arrow-right {
+    justify-content: space-between;
+
+    &:after {
+      content: "\e80c";
+      font-family: icon;
+      margin-left: 12px;
+      transition: $transition;
+    }
+
+    &:after {
+      transform: rotate(-90deg);
+    }
+
+    &:hover {
+      &:after {
+        transform: rotate(-90deg) translateY(5px);
+      }
+    }
+  }
+
+  &--light-bg {
+    &:hover {
+      background-color: $white-color;
+      color: $text-color;
+    }
+
+  }
+}
+
+.title-wrap {
+  margin-bottom: 40px;
+
+  @media (max-width: 1480px) {
+    padding: 0 17px;
+  }
+
+  @include lg {
+    margin-bottom: 35px;
+  }
+
+  @include md {
+    margin-bottom: 30px;
+  }
+
+  @include sm {
+    margin-bottom: 25px;
+  }
+
+  @include xs {
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .title {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 40px;
+    color: $text-color;
+    position: relative;
+    line-height: 30px;
+    display: inline-block;
+
+    @include lg {
+      font-size: 35px;
+      line-height: normal;
+    }
+
+    @include md {
+      font-size: 30px;
+      line-height: normal;
+    }
+
+    @include sm {
+      font-size: 25px;
+      line-height: normal;
+    }
+
+    @include xs {
+      font-size: 20px;
+      line-height: normal;
+    }
+
+    &--light {
+      color: $white-color;
+    }
+
+    &:before {
+      position: absolute;
+      content: '\E805';
+      font-family: icon;
+      font-size: 7px;
+      color: $main-color;
+      bottom: 0;
+      right: calc(100% + 10px);
+      @include aife-jfcfe;
+      line-height: 7px;
+
+      @include xs {
+        display: none;
+      }
+    }
+  }
+
+  .subtitle {
+    font-weight: 500;
+    margin-top: 15px;
+
+    @include lg {
+      font-size: 15px;
+    }
+
+    @include md {
+      font-size: 14px;
+    }
+
+    @include sm {
+      font-size: 13px;
+    }
+
+    @include xs {
+      font-size: 12px;
+    }
+  }
+
+  &--centered {
+    text-align: center;
+  }
+}
+
+form {
+  @include fdc;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+
+  input {
+    background-color: $white-color;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 100%;
+    height: 39px;
+    color: #737373;
+    padding: 0 10px;
+    border: none;
+  }
+}
+
+
+img[lazy=loading] {
+  opacity: 0;
+}
+
+img[lazy=error] {
+  transition: $transition;
+}
+
+img[lazy=loaded] {
+  transition: $transition;
+}
+
+
+
+
+.block {
+  margin-bottom: 40px;
+
+  &__item {
+    text-align: center;
+    padding: 40px 24px;
+    width: calc(25% - 20px);
+    box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    background-color: $white-color;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include lg {
+      padding: 30px 10px;
+      width: calc(25% - 10px);
+    }
+
+    @include md {
+      padding: 25px 17px;
+      width: calc(25% - 5px);
+    }
+
+    @include sm {
+      padding: 22px 15px;
+      width: calc(50% - 5px);
+      margin-bottom: 20px;
+    }
+
+    @include xs {
+      padding: 20px 12px;
+      width: 100%;
+    }
+  }
+
+  &__wrap {
+    @include fww-jfcsb;
+
+    @include sm {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__img {
+    width: 129px;
+    height: 129px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 30px;
+
+    img {
+      width: 100%;
+    }
+
+    @include lg {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 25px;
+    }
+
+    @include md {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 20px;
+    }
+
+    @include sm {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+    }
+
+    @include sm {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+    @include lg {
+      font-size: 18px;
+      margin-bottom: 17px;
+    }
+
+    @include md {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    @include sm {
+      font-size: 16px;
+      margin-bottom: 13px;
+    }
+
+    @include xs {
+      font-size: 15px;
+      margin-bottom: 11px;
+    }
+  }
+
+  &__desc {
+    font-size: 14px;
+
+    @include md {
+      font-size: 12px;
+    }
+  }
+}
+
+.secondary-bg {
+  background-color: $secondary-color;
+
+  * {
+    color: $white-color;
+  }
+}
